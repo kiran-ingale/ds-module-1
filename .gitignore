@@ -1,0 +1,32 @@
+# Local instructions
+/instructions.md
+
+# Python virtual environments and generated files
+/myenv/
+/.venv/
+/venv/
+/env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+
+# Node.js dependencies and generated output
+node_modules/
+dist/
+build/
+
+# Logs and temporary files
+*.log
+*.tmp
+
+# Operating system and editor files
+.DS_Store
+Thumbs.db
+.idea/
+*.suo
+*.user

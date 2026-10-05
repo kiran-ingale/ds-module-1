@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Programming for Data Science</title>
+    <meta
+      name="description"
+      content="Hands-on workshop microsite for Python Programming for Data Science."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand-box">
+          <h1>Python for Data Science</h1>
+        </div>
+
+        <label class="search-box" for="searchInput">
+          <span>Search</span>
+          <input id="searchInput" type="search" placeholder="Jump to a topic..." />
+        </label>
+
+        <nav class="sidebar-nav" aria-label="Workshop sections">
+          <a href="#overview">Workshop Overview</a>
+          <a href="#setup">Environment Setup</a>
+          <a href="#fundamentals">Python Fundamentals</a>
+          <a href="#datatypes">Data Types &amp; Control Flow</a>
+          <a href="#functions">Functions</a>
+          <a href="#lambda-recursion">Lambda &amp; Recursion</a>
+          <a href="#collections">Collections</a>
+          <a href="#file-handling">File Handling</a>
+          <a href="#csv-json">CSV &amp; JSON</a>
+          <a href="#exceptions">Exception Handling &amp; Debugging</a>
+          <a href="#oop">Object-Oriented Programming</a>
+          <a href="#iterators-generators">Iterators &amp; Generators</a>
+          <a href="#decorators">Decorators</a>
+          <a href="#apis">APIs</a>
+          <a href="#database-connectivity">Database Connectivity</a>
+          <a href="#sql-python">SQL with Python</a>
+          <a href="#git-github">Git &amp; GitHub</a>
+          <a href="#mini-project">Mini Project</a>
+          <a href="#exercises">Exercises / Challenges</a>
+          <a href="#summary">Summary &amp; Next Steps</a>
+        </nav>
+      </aside>
+
+      <main class="content" id="top">
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+
+        <section class="hero block" id="overview">
+          <h2>Python Programming for Data Science</h2>
+
+          <div class="scenario-panel">
+            <h3>Core scenario: Student Performance Analytics</h3>
+            <pre><code>students = [
+    {"name": "Aarav", "marks": 85},
+    {"name": "Riya", "marks": 72},
+    {"name": "Kiran", "marks": 91}
+]</code></pre>
+            <p>
+              Throughout the workshop, students will use this dataset to explore variables, conditions, loops, functions, collections, files, APIs, SQL, and mini-project workflows.
+            </p>
+          </div>
+
+          <div class="roadmap">
+            <h3>Workshop Roadmap</h3>
+            <div class="roadmap-flow" aria-label="Roadmap">
+              <span>Python Fundamentals</span>
+              <span>↓</span>
+              <span>Data Handling</span>
+              <span>↓</span>
+              <span>Reusable Code</span>
+              <span>↓</span>
+              <span>Robust Programs</span>
+              <span>↓</span>
+              <span>Advanced Python</span>
+              <span>↓</span>
+              <span>APIs &amp; Databases</span>
+              <span>↓</span>
+              <span>Git/GitHub</span>
+              <span>↓</span>
+              <span>Mini Project</span>
+              <span>↓</span>
+              <span>Data Science</span>
+            </div>
+          </div>
+
+          <div class="demo-path">
+            <h3>30-Minute Demo Path</h3>
+            <ol>
+              <li><span>Hook — Why Python for Data Science?</span> <em>3 min</em></li>
+              <li><span>Python fundamentals</span> <em>4 min</em></li>
+              <li><span>Collections</span> <em>4 min</em></li>
+              <li><span>Functions</span> <em>4 min</em></li>
+              <li><span>CSV/JSON</span> <em>4 min</em></li>
+              <li><span>Exception handling</span> <em>3 min</em></li>
+              <li><span>OOP</span> <em>3 min</em></li>
+              <li><span>Generator</span> <em>2 min</em></li>
+              <li><span>API/SQL overview</span> <em>3 min</em></li>
+              <li><span>Mini-project roadmap</span> <em>2 min</em></li>
+            </ol>
+          </div>
+        </section>
+
+        <section class="topic block" id="setup">
+          <div class="section-header">
+            <span class="section-number">01</span>
+            <h2>Environment Setup</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Install Python and use a beginner-friendly editor</li>
+                <li>Create a virtual environment</li>
+                <li>Install packages with pip</li>
+                <li>Run your first Python script</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Data science work starts with reproducible tooling. A clean Python setup ensures every notebook, script, and package behaves the same way across machines and sessions.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Before writing analysis code, students need a working environment. Python is installed locally, VS Code or Jupyter helps write code, and a virtual environment keeps project dependencies isolated.</p>
+
+          <div class="visual-box flowchart">
+            <div>Install Python</div>
+            <div>→</div>
+            <div>Open VS Code / Jupyter</div>
+            <div>→</div>
+            <div>Create venv</div>
+            <div>→</div>
+            <div>pip install packages</div>
+            <div>→</div>
+            <div>Run script</div>
+          </div>
+
+          <h3>Example</h3>
+          <pre><code># Create a virtual environment
+python -m venv myenv
+
+# Activate it
+# Windows
+myenv\Scripts\activate
+# macOS/Linux
+source myenv/bin/activate
+
+# Install packages
+pip install pandas numpy matplotlib requests sqlite3
+
+# Run a script
+python hello.py</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>python -m venv myenv</strong> creates an isolated environment for the project.</li>
+            <li><strong>Activate</strong> ensures installed packages are stored in this project, not globally.</li>
+            <li><strong>pip install ...</strong> brings in libraries used in data science and APIs.</li>
+            <li><strong>python hello.py</strong> executes the script in that environment.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Create a virtual environment called <code>ds-workshop</code> and print <code>Hello, Data Science!</code> from a file named <code>hello.py</code>.</p>
+            <button class="toggle-solution" data-target="setup-solution">Show Solution</button>
+            <div class="solution" id="setup-solution" hidden>
+              <pre><code>python -m venv ds-workshop
+# Windows
+ ds-workshop\Scripts\activate
+# Linux/macOS
+source ds-workshop/bin/activate
+
+print("Hello, Data Science!")</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Set up a project with a new virtual environment and install <code>pandas</code> and <code>matplotlib</code>. Then verify the environment by importing both packages in Python.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Installing packages globally instead of inside a virtual environment.</li>
+            <li>Using the wrong Python interpreter in VS Code.</li>
+            <li>Running scripts from the wrong folder.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Most data science projects rely on libraries such as pandas, NumPy, and scikit-learn. A proper environment makes experiments repeatable.</p>
+        </section>
+
+        <section class="topic block" id="fundamentals">
+          <div class="section-header">
+            <span class="section-number">02</span>
+            <h2>Python Fundamentals</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>What Python is and why it is widely used</li>
+                <li>How to run Python code</li>
+                <li>Variables and comments</li>
+                <li>Basic output and input</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Every workflow begins with reading data, storing values, and printing outputs. Python fundamentals are the building blocks for every analysis script.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Python is a readable language with simple syntax. You can assign values to variables, write comments, and print output to inspect what your program is doing.</p>
+
+          <div class="visual-box">
+            <pre>student_name = "Aarav"
+student_marks = 85
+print(student_name, student_marks)</pre>
+          </div>
+
+          <h3>Example</h3>
+          <pre><code>student_name = "Aarav"
+student_marks = 85
+
+print("Student:", student_name)
+print("Marks:", student_marks)
+
+# This is a comment
+# Python ignores comments during execution</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>student_name = "Aarav"</strong> stores a string in a variable.</li>
+            <li><strong>student_marks = 85</strong> stores a number.</li>
+            <li><strong>print(...)</strong> displays values in the console so students can see results.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Create variables for a student's name and marks, then print a sentence like: <code>Aarav scored 85 marks.</code></p>
+            <button class="toggle-solution" data-target="fundamentals-solution">Show Solution</button>
+            <div class="solution" id="fundamentals-solution" hidden>
+              <pre><code>name = "Aarav"
+marks = 85
+print(f"{name} scored {marks} marks.")</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a tiny script that stores the names and marks of three students and prints each one in a single sentence.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Using quotes inconsistently around strings.</li>
+            <li>Forgetting that variable names are case-sensitive.</li>
+            <li>Trying to print a variable before assigning it.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>In data science, values from CSV files, APIs, or databases are loaded into variables before analysis. Understanding data types and storage matters at every stage.</p>
+        </section>
+
+        <section class="topic block" id="datatypes">
+          <div class="section-header">
+            <span class="section-number">03</span>
+            <h2>Data Types &amp; Control Flow</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Strings, integers, floats, booleans</li>
+                <li>If, elif, else statements</li>
+                <li>For and while loops</li>
+                <li>Comparison and logical operators</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Analyses often require filtering rows, checking quality, and iterating through data. This is where data becomes decision-making logic.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Python values have different types. A number, a text value, a Boolean, and an array are not treated the same. Control flow helps you decide what to do based on conditions.</p>
+
+          <div class="visual-box">
+            <div class="logic-visual">
+              <span>if</span>
+              <span>marks &gt;= 80</span>
+              <span>then</span>
+              <span>Excellent</span>
+            </div>
+          </div>
+
+          <h3>Example</h3>
+          <pre><code>marks = 86
+
+if marks >= 90:
+    grade = "A"
+elif marks >= 75:
+    grade = "B"
+else:
+    grade = "C"
+
+print("Grade:", grade)
+
+for student in ["Aarav", "Riya", "Kiran"]:
+    print(student)</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>if / elif / else</strong> decides which branch to take.</li>
+            <li><strong>marks >= 90</strong> is a comparison.</li>
+            <li><strong>for student in [...]</strong> loops through a list.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Use a loop to print whether each student passed or failed based on a threshold of 50 marks.</p>
+            <button class="toggle-solution" data-target="datatypes-solution">Show Solution</button>
+            <div class="solution" id="datatypes-solution" hidden>
+              <pre><code>students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 40}]
+
+for student in students:
+    if student["marks"] >= 50:
+        print(f"{student['name']} passed")
+    else:
+        print(f"{student['name']} failed")</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a script that checks whether a student is <code>Excellent</code>, <code>Good</code>, or <code>Needs Support</code> based on a score range.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Using <code>=</code> instead of <code>==</code>.</li>
+            <li>Forgetting the colon after <code>if</code> and <code>for</code>.</li>
+            <li>Indenting blocks incorrectly.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Filtering bad data, prioritizing observations, and building reporting rules are all built on this pattern.</p>
+        </section>
+
+        <section class="topic block" id="functions">
+          <div class="section-header">
+            <span class="section-number">04</span>
+            <h2>Functions</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How to define reusable functions</li>
+                <li>Parameters and return values</li>
+                <li>Function call flow</li>
+                <li>When to use functions in analysis</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Data science scripts repeat transformations like filtering, summarizing, and scoring. Functions reduce duplication and make analysis easier to maintain.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>A function is a reusable block of code that takes input, does work, and returns an output. It helps separate logic into neat pieces.</p>
+
+          <div class="visual-box">
+            <pre>function average_marks(students):
+    total = ...
+    return ...</pre>
+          </div>
+
+          <h3>Example</h3>
+          <pre><code>def average_marks(student_list):
+    total = 0
+    for student in student_list:
+        total += student["marks"]
+    return total / len(student_list)
+
+students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 72}]
+print(average_marks(students))</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>def average_marks(...):</strong> declares a reusable function.</li>
+            <li><strong>total += student["marks"]</strong> accumulates marks.</li>
+            <li><strong>return ...</strong> sends the final value back to the caller.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Write a function that returns the top score from a list of student marks.</p>
+            <button class="toggle-solution" data-target="functions-solution">Show Solution</button>
+            <div class="solution" id="functions-solution" hidden>
+              <pre><code>def top_score(marks):
+    return max(marks)
+
+scores = [80, 72, 91]
+print(top_score(scores))</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Build a function that takes student records and returns only those with marks above 75.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Returning nothing when you meant to return a value.</li>
+            <li>Forgetting to call the function.</li>
+            <li>Changing a parameter inside a function without knowing its scope.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Data preparation workflows often organize tasks into functions: clean values, compute aggregate metrics, rank students, and generate reports.</p>
+        </section>
+
+        <section class="topic block" id="lambda-recursion">
+          <div class="section-header">
+            <span class="section-number">05</span>
+            <h2>Lambda &amp; Recursion</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Anonymous functions with lambda</li>
+                <li>When lambda is useful</li>
+                <li>Recursive functions</li>
+                <li>Base case vs recursive step</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Short transformations appear in sorting, filtering, and aggregations. Recursion is useful when a problem naturally breaks into smaller subproblems.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>A lambda is a quick one-line function. Recursion means a function calls itself until it reaches a stopping condition. Both are compact ways to model logic.</p>
+
+          <h3>Example</h3>
+          <pre><code>students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 72}]
+
+# Lambda: convert marks to percentage-like label
+score_label = lambda marks: "Pass" if marks >= 50 else "Fail"
+print(score_label(85))
+
+# Recursion: count down to zero
+def countdown(n):
+    if n == 0:
+        return "Done"
+    return countdown(n - 1)
+
+print(countdown(3))</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>lambda marks: ...</strong> creates a short function without a full definition.</li>
+            <li><strong>if marks >= 50 else "Fail"</strong> is a compact condition.</li>
+            <li><strong>countdown(n - 1)</strong> reduces the problem until it reaches the base case.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Use a lambda to check if a score is above 80 and print either <code>Top performer</code> or <code>Needs improvement</code>.</p>
+            <button class="toggle-solution" data-target="lambda-solution">Show Solution</button>
+            <div class="solution" id="lambda-solution" hidden>
+              <pre><code>status = lambda score: "Top performer" if score > 80 else "Needs improvement"
+print(status(85))</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a recursive function that calculates the sum of a list of numbers without using a loop.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting the base case in recursion.</li>
+            <li>Overusing lambda when a normal function would be clearer.</li>
+            <li>Calling a recursive function with values that never reach the stopping condition.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Lambda expressions are common in sorting and filtering tasks; recursion appears in tree-like data structures and some algorithmic problems.</p>
+        </section>
+
+        <section class="topic block" id="collections">
+          <div class="section-header">
+            <span class="section-number">06</span>
+            <h2>Collections</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Lists, tuples, sets, dictionaries</li>
+                <li>Indexing and slicing</li>
+                <li>Adding, updating, and removing values</li>
+                <li>Working with student records</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Real data is stored in collections. Whether reading rows from CSV or analyzing model outputs, lists and dictionaries are the default structures used in Python workflows.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Collections let you store multiple values together. A list keeps order, a set keeps unique items, and a dictionary stores key-value pairs.</p>
+
+          <div class="visual-box">
+            <pre>{
+  "Aarav": 85,
+  "Riya": 72,
+  "Kiran": 91
+}</pre>
+          </div>
+
+          <h3>Example</h3>
+          <pre><code>student_names = ["Aarav", "Riya", "Kiran"]
+student_marks = {"Aarav": 85, "Riya": 72, "Kiran": 91}
+
+print(student_names[0])
+print(student_marks["Kiran"])
+
+student_names.append("Meera")
+student_marks["Meera"] = 88
+print(student_names)
+print(student_marks)</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>list</strong> stores multiple values in order.</li>
+            <li><strong>dict</strong> maps names to marks.</li>
+            <li><strong>append</strong> and <strong>[] =</strong> add new data to the structure.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Create a dictionary of student marks and print the average marks of all students.</p>
+            <button class="toggle-solution" data-target="collections-solution">Show Solution</button>
+            <div class="solution" id="collections-solution" hidden>
+              <pre><code>marks = {"Aarav": 85, "Riya": 72, "Kiran": 91}
+average = sum(marks.values()) / len(marks)
+print(average)</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Turn the list of students into a dictionary keyed by name and then find the top performer.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Mixing up list indexing and dictionary keys.</li>
+            <li>Assuming a set keeps insertion order.</li>
+            <li>Mutating a collection while iterating over it.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Collections are how data frames, API responses, and model results are represented in Python-friendly ways.</p>
+        </section>
+
+        <section class="topic block" id="file-handling">
+          <div class="section-header">
+            <span class="section-number">07</span>
+            <h2>File Handling</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Read and write text files</li>
+                <li>Use relative and absolute paths</li>
+                <li>Write clean file logic</li>
+                <li>Persist student records</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Datasets often start as text files, logs, or saved outputs. File handling is the basic way scripts store and reuse data.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Files let programs keep data even after the program ends. Text files are easy to read and edit, and this is often the first step when creating a local dataset.</p>
+
+          <h3>Example</h3>
+          <pre><code>with open("students.txt", "w") as file:
+    file.write("Aarav,85\n")
+    file.write("Riya,72\n")
+
+with open("students.txt", "r") as file:
+    for line in file:
+        print(line.strip())</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>with open(...)</strong> opens a file and closes it automatically.</li>
+            <li><strong>"w"</strong> means write mode; <strong>"r"</strong> means read mode.</li>
+            <li><strong>.strip()</strong> removes the newline to keep output tidy.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Save three student names and marks to a <code>students.txt</code> file and read them back.</p>
+            <button class="toggle-solution" data-target="file-solution">Show Solution</button>
+            <div class="solution" id="file-solution" hidden>
+              <pre><code>with open("students.txt", "w") as file:
+    file.write("Aarav,85\n")
+    file.write("Riya,72\n")
+    file.write("Kiran,91\n")
+
+with open("students.txt", "r") as file:
+    print(file.read())</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Read from a file and print only the students with marks above 75.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Not closing the file after writing.</li>
+            <li>Using the wrong mode, like reading instead of writing.</li>
+            <li>Hard-coding paths without checking the working directory.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>CSV files, logs, and exported reports are all forms of file-based data. Learning file handling is a practical gateway into data ingestion.</p>
+        </section>
+
+        <section class="topic block" id="csv-json">
+          <div class="section-header">
+            <span class="section-number">08</span>
+            <h2>CSV &amp; JSON</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Read CSV and JSON data</li>
+                <li>Store student records in a structured way</li>
+                <li>Write analysis outputs</li>
+                <li>Convert between data formats</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Most real-world datasets arrive as CSV or JSON. These formats are easy to inspect and parse, which is why they appear in almost every pipeline.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>CSV stores table-like data in rows and columns. JSON stores nested data in a readable key-value structure. Both are widely used in data science and APIs.</p>
+
+          <h3>Example</h3>
+          <pre><code>import csv
+import json
+
+students = [
+    {"name": "Aarav", "marks": 85},
+    {"name": "Riya", "marks": 72}
+]
+
+with open("students.json", "w") as f:
+    json.dump(students, f)
+
+with open("students.csv", "w", newline="") as f:
+    writer = csv.DictWriter(f, fieldnames=["name", "marks"])
+    writer.writeheader()
+    writer.writerows(students)</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>json.dump</strong> stores Python data as JSON.</li>
+            <li><strong>csv.DictWriter</strong> turns records into table rows.</li>
+            <li><strong>fieldnames</strong> defines the column names.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Read a CSV file and print the names of students who scored above 80.</p>
+            <button class="toggle-solution" data-target="csv-solution">Show Solution</button>
+            <div class="solution" id="csv-solution" hidden>
+              <pre><code>import csv
+
+with open("students.csv", newline="") as file:
+    rows = csv.DictReader(file)
+    for row in rows:
+        if int(row["marks"]) > 80:
+            print(row["name"])</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Read a JSON file of student records and calculate the overall average score.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting that CSV values are strings until converted.</li>
+            <li>Using JSON where a table structure is a better fit.</li>
+            <li>Not handling missing data when reading files.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Actual data science pipelines load raw CSVs or API JSON into Python, clean them, and then train models or visualize results.</p>
+        </section>
+
+        <section class="topic block" id="exceptions">
+          <div class="section-header">
+            <span class="section-number">09</span>
+            <h2>Exception Handling &amp; Debugging</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>try / except / finally</li>
+                <li>Handle invalid inputs gracefully</li>
+                <li>Debug common runtime errors</li>
+                <li>Make scripts more robust</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Real datasets contain missing values, weird strings, or broken files. Robust code handles unexpected issues without crashing the whole analysis.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Exceptions are errors Python raises at runtime. Instead of stopping the program abruptly, you can catch them, report useful messages, and continue safely.</p>
+
+          <h3>Example</h3>
+          <pre><code>student = {"name": "Aarav", "marks": "N/A"}
+
+try:
+    score = int(student["marks"])
+    print("Score:", score)
+except ValueError:
+    print("Invalid marks value. Please enter a number.")
+finally:
+    print("Validation complete.")</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>try</strong> contains code that may fail.</li>
+            <li><strong>except ValueError</strong> catches a specific problem.</li>
+            <li><strong>finally</strong> runs no matter what happens.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Write code that handles a bad marks value and prints a friendly message.</p>
+            <button class="toggle-solution" data-target="exceptions-solution">Show Solution</button>
+            <div class="solution" id="exceptions-solution" hidden>
+              <pre><code>marks = "abc"
+try:
+    print(int(marks))
+except ValueError:
+    print("Marks must be numeric.")</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Handle both a missing file and an invalid data value in one script.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Using a broad <code>except:</code> without clarifying what failed.</li>
+            <li>Ignoring the type of exception.</li>
+            <li>Suppressing errors without giving useful information to the user.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Bad sensor values, missing columns, and failed API responses are common in data projects. Defensive coding prevents your entire model workflow from collapsing.</p>
+        </section>
+
+        <section class="topic block" id="oop">
+          <div class="section-header">
+            <span class="section-number">10</span>
+            <h2>Object-Oriented Programming</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Classes and objects</li>
+                <li>Attributes and methods</li>
+                <li>Encapsulation with simple examples</li>
+                <li>Modeling student data</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Programs become easier to manage when real-world entities like students, datasets, or models are represented as objects rather than loose dictionaries and functions.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Object-oriented programming (OOP) groups related data and behavior together. A class defines a blueprint, and an object is a specific instance built from it.</p>
+
+          <h3>Example</h3>
+          <pre><code>class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def pass_status(self):
+        return "Pass" if self.marks >= 50 else "Fail"
+
+student = Student("Aarav", 85)
+print(student.name)
+print(student.pass_status())</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>class Student:</strong> defines the blueprint.</li>
+            <li><strong>__init__</strong> sets the object's initial state.</li>
+            <li><strong>pass_status()</strong> is a method that uses the object's data.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Create a <code>Student</code> class with a method that returns the grade based on marks.</p>
+            <button class="toggle-solution" data-target="oop-solution">Show Solution</button>
+            <div class="solution" id="oop-solution" hidden>
+              <pre><code>class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.marks = marks
+
+    def grade(self):
+        if self.marks >= 90:
+            return "A"
+        elif self.marks >= 75:
+            return "B"
+        return "C"
+
+s = Student("Riya", 81)
+print(s.grade())</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Create a small class <code>StudentPerformance</code> that stores marks and has methods for average, top performer, and status.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Using classes when simple functions are enough.</li>
+            <li>Confusing class attributes with instance attributes.</li>
+            <li>Forgetting to initialize instance state.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>OOP is useful when organizing experiments, model wrappers, and reusable training logic in larger projects.</p>
+        </section>
+
+        <section class="topic block" id="iterators-generators">
+          <div class="section-header">
+            <span class="section-number">11</span>
+            <h2>Iterators &amp; Generators</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>How iteration works in Python</li>
+                <li>Iterators and generator functions</li>
+                <li>Memory-efficient processing</li>
+                <li>Use in large datasets</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Large datasets don’t always fit comfortably in memory. Generators help process values one by one instead of loading everything at once.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>An iterator provides values one at a time, and a generator creates them lazily. This is useful when you want to process data efficiently without storing everything in memory.</p>
+
+          <h3>Example</h3>
+          <pre><code>def student_generator(students):
+    for student in students:
+        yield student
+
+students = ["Aarav", "Riya", "Kiran"]
+for student in student_generator(students):
+    print(student)</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>yield</strong> turns a function into a generator.</li>
+            <li>Each value is produced one by one instead of all at once.</li>
+            <li><strong>for ... in ...</strong> consumes the values as they are generated.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Write a generator that yields the marks of students above 80.</p>
+            <button class="toggle-solution" data-target="generator-solution">Show Solution</button>
+            <div class="solution" id="generator-solution" hidden>
+              <pre><code>def top_students(scores):
+    for score in scores:
+        if score > 80:
+            yield score
+
+print(list(top_students([72, 81, 88, 70])))</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Create a generator that reads a list of students and yields only names starting with the letter <code>A</code>.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Using a list when a generator would be more efficient.</li>
+            <li>Forgetting that generators are consumed once.</li>
+            <li>Confusing iteration over a list with one-time generator output.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Generators are ideal for processing large logs or datasets in chunks without consuming too much memory.</p>
+        </section>
+
+        <section class="topic block" id="decorators">
+          <div class="section-header">
+            <span class="section-number">12</span>
+            <h2>Decorators</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Wrap functions with additional behavior</li>
+                <li>Understand reusable code patterns</li>
+                <li>Use decorators for logging and validation</li>
+                <li>See why they matter in real codebases</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Decorators are used for logging, timing, validation, and access control. They help add features without modifying the original logic.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>A decorator wraps a function and adds behavior before or after it runs. This is a pattern for extending functionality without rewriting the function itself.</p>
+
+          <h3>Example</h3>
+          <pre><code>def log_function(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__}")
+        result = func(*args, **kwargs)
+        print(f"Finished {func.__name__}")
+        return result
+    return wrapper
+
+@log_function
+def average_marks(marks):
+    return sum(marks) / len(marks)
+
+print(average_marks([80, 72, 91]))</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>log_function()</strong> defines a wrapper around another function.</li>
+            <li><strong>@log_function</strong> tells Python to use the wrapper.</li>
+            <li>The wrapper logs activity before and after the original function runs.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Create a decorator that prints the result of a student grade function.</p>
+            <button class="toggle-solution" data-target="decorators-solution">Show Solution</button>
+            <div class="solution" id="decorators-solution" hidden>
+              <pre><code>def show_result(func):
+    def wrapper(*args, **kwargs):
+        result = func(*args, **kwargs)
+        print(f"Result: {result}")
+        return result
+    return wrapper
+
+@show_result
+def grade(score):
+    return "Pass" if score >= 50 else "Fail"
+
+print(grade(78))</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a decorator that validates that marks are numeric before running a function.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting to return the wrapped function result.</li>
+            <li>Confusing decorators with simple loops.</li>
+            <li>Using decorators for very simple logic that doesn’t need wrapping.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Decorators are common in frameworks for timing, logging, monitoring, and validation of functions used in experimental pipelines.</p>
+        </section>
+
+        <section class="topic block" id="apis">
+          <div class="section-header">
+            <span class="section-number">13</span>
+            <h2>APIs</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>What an API is</li>
+                <li>Use requests to fetch JSON data</li>
+                <li>Understand GET requests</li>
+                <li>Work with real data sources</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Data often comes from APIs, whether it is product information, weather, or public datasets. APIs are a bridge between software and data sources.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>An API allows one program to request data from another service. In Python, the <code>requests</code> library makes this easy.</p>
+
+          <h3>Example</h3>
+          <pre><code>import requests
+
+response = requests.get("https://api.github.com")
+print(response.status_code)
+print(response.json())</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>requests.get(...)</strong> sends an HTTP GET request.</li>
+            <li><strong>status_code</strong> tells you if the request succeeded.</li>
+            <li><strong>.json()</strong> turns the response into a Python dictionary.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Fetch a simple public API and print one field from its JSON response.</p>
+            <button class="toggle-solution" data-target="api-solution">Show Solution</button>
+            <div class="solution" id="api-solution" hidden>
+              <pre><code>import requests
+
+response = requests.get("https://api.github.com")
+print(response.status_code)
+print(response.json()["current_user_url"])</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a script that fetches data from a public API and saves it to a JSON file.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting to check the status code.</li>
+            <li>Assuming the API response is always valid JSON.</li>
+            <li>Not handling internet or network errors.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>APIs are common for automated data collection, dashboards, and connecting machine learning systems to fresh data sources.</p>
+        </section>
+
+        <section class="topic block" id="database-connectivity">
+          <div class="section-header">
+            <span class="section-number">14</span>
+            <h2>Database Connectivity</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Connect Python to a database</li>
+                <li>Store and retrieve records</li>
+                <li>Understand DB connections</li>
+                <li>Use databases in real projects</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Large data projects often store results in databases instead of text files. Structured storage makes it easier to query, filter, and analyze data at scale.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>A database is organized storage for data. Python connects to a database using drivers or built-in modules, allowing the program to read and write records reliably.</p>
+
+          <h3>Example</h3>
+          <pre><code>import sqlite3
+
+conn = sqlite3.connect("students.db")
+cur = conn.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS students (name TEXT, marks INTEGER)")
+cur.execute("INSERT INTO students VALUES (?, ?)", ("Aarav", 85))
+conn.commit()
+print("Saved student record.")
+conn.close()</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>sqlite3.connect(...)</strong> opens the database.</li>
+            <li><strong>cursor()</strong> allows execution of SQL statements.</li>
+            <li><strong>commit()</strong> saves the changes permanently.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟡 Intermediate:</strong> Create a database table for student names and marks and insert two records.</p>
+            <button class="toggle-solution" data-target="db-solution">Show Solution</button>
+            <div class="solution" id="db-solution" hidden>
+              <pre><code>import sqlite3
+
+conn = sqlite3.connect("students.db")
+cur = conn.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS students (name TEXT, marks INTEGER)")
+cur.execute("INSERT INTO students VALUES (?, ?)", ("Riya", 72))
+conn.commit()
+conn.close()</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Write a script that stores student records from a Python list into a SQLite database table.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting to call <code>commit()</code>.</li>
+            <li>Using invalid SQL syntax.</li>
+            <li>Not closing the database connection.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Databases are common storage layers for analytics and ML pipelines because they make data querying and updates consistent and efficient.</p>
+        </section>
+
+        <section class="topic block" id="sql-python">
+          <div class="section-header">
+            <span class="section-number">15</span>
+            <h2>SQL with Python</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Create and query tables</li>
+                <li>Use SQL with Python</li>
+                <li>Filter results by conditions</li>
+                <li>Fetch summaries and top performers</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>SQL is the language of relational data. Data scientists use it to filter, aggregate, and explore large datasets before analysis.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>SQL lets you ask questions about structured tables. Python can send SQL statements to a database and then work with the returned results.</p>
+
+          <h3>Example</h3>
+          <pre><code>import sqlite3
+
+conn = sqlite3.connect("students.db")
+cur = conn.cursor()
+cur.execute("SELECT name, marks FROM students WHERE marks >= 80")
+rows = cur.fetchall()
+for row in rows:
+    print(row)
+conn.close()</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>SELECT ... WHERE ...</strong> filters records using conditions.</li>
+            <li><strong>fetchall()</strong> retrieves every matching row.</li>
+            <li><strong>for row in rows</strong> loops through results.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Query the database to print the names of students with marks above 75.</p>
+            <button class="toggle-solution" data-target="sql-solution">Show Solution</button>
+            <div class="solution" id="sql-solution" hidden>
+              <pre><code>import sqlite3
+
+conn = sqlite3.connect("students.db")
+cur = conn.cursor()
+cur.execute("SELECT name FROM students WHERE marks > 75")
+for name, in cur.fetchall():
+    print(name)
+conn.close()</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Use SQL to calculate the average marks across all students.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Forgetting that SQL queries are based on column names.</li>
+            <li>Mixing Python values and SQL syntax incorrectly.</li>
+            <li>Not checking the database schema before writing queries.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>In data analysis, SQL is the standard way to prepare, group, and summarize large datasets before visualizing or modeling them.</p>
+        </section>
+
+        <section class="topic block" id="git-github">
+          <div class="section-header">
+            <span class="section-number">16</span>
+            <h2>Git &amp; GitHub</h2>
+          </div>
+
+          <div class="topic-grid">
+            <div>
+              <h3>What you'll learn</h3>
+              <ul>
+                <li>Version control basics</li>
+                <li>Git commands for saving work</li>
+                <li>Commit, push, pull, and branch</li>
+                <li>Collaborate on a project</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Why does this matter in Data Science?</h3>
+              <p>Projects evolve over time. Tracking experiments and code changes helps teams reproduce work and avoid losing valuable analysis attempts.</p>
+            </div>
+          </div>
+
+          <h3>Concept</h3>
+          <p>Git tracks file changes over time, and GitHub hosts repositories online. This helps students and teams keep a safe, collaborative history of their work.</p>
+
+          <h3>Example</h3>
+          <pre><code>git init
+git add .
+git commit -m "Initial student analytics project"
+git branch -M main
+git remote add origin https://github.com/username/project.git
+git push -u origin main</code></pre>
+
+          <h3>Let's understand the code</h3>
+          <ol>
+            <li><strong>git init</strong> starts a repository.</li>
+            <li><strong>git add</strong> stages files for commit.</li>
+            <li><strong>git commit</strong> saves a snapshot with a message.</li>
+          </ol>
+
+          <h3>Try it yourself</h3>
+          <div class="exercise-box">
+            <p><strong>🟢 Beginner:</strong> Initialize a repository and make an initial commit for your project files.</p>
+            <button class="toggle-solution" data-target="git-solution">Show Solution</button>
+            <div class="solution" id="git-solution" hidden>
+              <pre><code>git init
+git add .
+git commit -m "Initial project setup"</code></pre>
+            </div>
+          </div>
+
+          <h3>Challenge</h3>
+          <p>Create a branch called <code>feature/student-report</code> and commit a small improvement to your project.</p>
+
+          <h3>Common mistakes</h3>
+          <ul>
+            <li>Committing before checking the files you are staging.</li>
+            <li>Forgetting to write clear commit messages.</li>
+            <li>Working without a branch in collaborative projects.</li>
+          </ul>
+
+          <h3>Data Science connection</h3>
+          <p>Version control is essential for tracking experiments, scripts, notebooks, and model versions across a team.</p>
+        </section>
+
+        <section class="topic block" id="mini-project">
+          <div class="section-header">
+            <span class="section-number">17</span>
+            <h2>Mini Project</h2>
+          </div>
+
+          <h3>Student Performance Analyzer</h3>
+          <p>Students build a small Python application that can:</p>
+          <ol>
+            <li>Read student data</li>
+            <li>Calculate average marks</li>
+            <li>Assign grades</li>
+            <li>Find top performers</li>
+            <li>Identify students below a threshold</li>
+            <li>Handle invalid data</li>
+            <li>Save/read data using CSV or JSON</li>
+            <li>Optionally retrieve data from a database</li>
+          </ol>
+
+          <div class="mini-project-steps">
+            <div class="step-card">
+              <span>Step 1</span>
+              <p>Load a list of student records and compute the mean.</p>
+            </div>
+            <div class="step-card">
+              <span>Step 2</span>
+              <p>Assign grades such as A, B, C, or Fail.</p>
+            </div>
+            <div class="step-card">
+              <span>Step 3</span>
+              <p>List top performers and students below the pass threshold.</p>
+            </div>
+            <div class="step-card">
+              <span>Step 4</span>
+              <p>Save results to CSV or JSON and handle bad input safely.</p>
+            </div>
+          </div>
+
+          <div class="exercise-box">
+            <p><strong>🔴 Challenge:</strong> Build the “Student Performance Analyzer” as a small script with at least three functions: load data, compute summary, and save results.</p>
+            <button class="toggle-solution" data-target="mini-project-solution">Show Solution</button>
+            <div class="solution" id="mini-project-solution" hidden>
+              <pre><code>students = [
+    {"name": "Aarav", "marks": 85},
+    {"name": "Riya", "marks": 72},
+    {"name": "Kiran", "marks": 91}
+]
+
+def average_marks(student_list):
+    total = sum(s["marks"] for s in student_list)
+    return total / len(student_list)
+
+print("Average marks:", average_marks(students))
+
+for student in students:
+    if student["marks"] >= 80:
+        print(student["name"], "is a top performer")</code></pre>
+            </div>
+          </div>
+        </section>
+
+        <section class="topic block" id="exercises">
+          <div class="section-header">
+            <span class="section-number">18</span>
+            <h2>Exercises / Challenges</h2>
+          </div>
+
+          <div class="exercise-list">
+            <div class="exercise-card">
+              <span class="difficulty beginner">🟢 Beginner</span>
+              <h3>Find the average</h3>
+              <p>Take the student dataset and compute the average marks for all students.</p>
+              <button class="toggle-solution" data-target="exercise-avg">Show Solution</button>
+              <div class="solution" id="exercise-avg" hidden>
+                <pre><code>students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 72}, {"name": "Kiran", "marks": 91}]
+average = sum(student["marks"] for student in students) / len(students)
+print(average)</code></pre>
+              </div>
+            </div>
+
+            <div class="exercise-card">
+              <span class="difficulty intermediate">🟡 Intermediate</span>
+              <h3>Top performer</h3>
+              <p>Write a function to return the student with the highest marks.</p>
+              <button class="toggle-solution" data-target="exercise-top">Show Solution</button>
+              <div class="solution" id="exercise-top" hidden>
+                <pre><code>students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 72}, {"name": "Kiran", "marks": 91}]
+
+def top_student(items):
+    return max(items, key=lambda s: s["marks"])
+
+print(top_student(students))</code></pre>
+              </div>
+            </div>
+
+            <div class="exercise-card">
+              <span class="difficulty challenge">🔴 Challenge</span>
+              <h3>Grade distribution</h3>
+              <p>Count how many students fall in each grade band.</p>
+              <button class="toggle-solution" data-target="exercise-grade">Show Solution</button>
+              <div class="solution" id="exercise-grade" hidden>
+                <pre><code>students = [{"name": "Aarav", "marks": 85}, {"name": "Riya", "marks": 72}, {"name": "Kiran", "marks": 91}]
+
+counts = {"A": 0, "B": 0, "C": 0}
+for student in students:
+    if student["marks"] >= 90:
+        counts["A"] += 1
+    elif student["marks"] >= 75:
+        counts["B"] += 1
+    else:
+        counts["C"] += 1
+
+print(counts)</code></pre>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="topic block" id="summary">
+          <div class="section-header">
+            <span class="section-number">19</span>
+            <h2>Summary &amp; Next Steps</h2>
+          </div>
+
+          <p>This workshop emphasizes one idea: Python is not just syntax; it is the practical language used to gather, clean, analyze, and explain data.</p>
+
+          <div class="next-steps">
+            <h3>What’s next?</h3>
+            <div class="next-steps-flow">
+              <span>Python</span>
+              <span>→</span>
+              <span>NumPy</span>
+              <span>→</span>
+              <span>Pandas</span>
+              <span>→</span>
+              <span>Data Visualization</span>
+              <span>→</span>
+              <span>Statistics</span>
+              <span>→</span>
+              <span>Machine Learning</span>
+              <span>→</span>
+              <span>AI</span>
+            </div>
+          </div>
+
+          <div class="wrap-up-cards">
+            <div class="mini-card">
+              <strong>Core takeaway</strong>
+              <p>Think like a data practitioner: read data, clean data, analyze data, communicate insights.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Workshop habit</strong>
+              <p>Practice small, reproducible examples using one real dataset.</p>
+            </div>
+            <div class="mini-card">
+              <strong>Final challenge</strong>
+              <p>Turn the student dataset into a fully working analyzer with file saving, grade assignment, and report output.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
